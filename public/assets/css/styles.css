@@ -1,0 +1,188 @@
+html {
+    font-family: "Montserrat", san-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    background: #fff;
+    color: #4a4a4a;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+    font-family: "Montserrat", san-serif;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+p {
+    color: #4a4a4a;
+}
+
+.text-pacifico {
+    font-family: Pacifico;
+}
+
+.bg-violet {
+    background-color: #712cf9;
+}
+
+.navbar-brand {
+    color: #712cf9;
+    font-family: Pacifico;
+    font-size: 24px;
+}
+
+.navbar-brand:hover {
+    color: #6528e0;
+}
+
+.nav-link {
+    color: #4a4a4a;
+}
+
+.nav-link:hover {
+    color: #6528e0;
+}
+
+.btn-bd-primary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: #712cf9;
+    --bs-btn-border-color: #712cf9;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+}
+
+.dark-mask {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card-img {
+    -webkit-filter: brightness(80%);
+}
+
+.recipe-card:hover>.recipe-card-img {
+    -webkit-filter: brightness(100%);
+}
+
+.recipe-card-save {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    color: #e2e2e2;
+    transition: 0.3s ease-in-out;
+}
+
+.recipe-card-save:hover {
+    color: #f12a2a;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.material-symbols-no-fill {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+a:hover {
+    color: #6528e0;
+}
+
+.accordion-filter>.accordion-header>.accordion-button {
+    font-size: 1rem;
+    color: #000;
+    font-family: "Montserrat", san-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+.accordion-filter>.accordion-header>.accordion-button:not(.collapsed) {
+    background-color: #ffffff;
+    color: #000;
+    box-shadow: none;
+}
+
+.accordion-filter>.accordion-header>.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, .125);
+}
+
+.filter-list>li:not(:last-child) {
+    padding-bottom: 15px;
+}
+
+.filter-list>li>a {
+    text-decoration: none;
+    color: #000;
+}
+
+.filter-list>li>a:hover {
+    color: #6528e0;
+}
+
+.text-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Montserrat", san-serif;
+    color: #4a4a4a;
+}
+
+.icon-md {
+    font-size: 3rem;
+}
+
+.ingredients-list>li {
+    color: #4a4a4a;
+}
+
+.ingredients-list>li:not(:last-child) {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaecf0;
+}
+
+.directions-step {
+    color: #6528e0;
+    font-weight: 500;
+    font-family: "Montserrat", san-serif;
+    overflow: hidden;
+}
+
+.directions-step:after {
+    content: "";
+    display: inline-block;
+    height: 0.75rem;
+    vertical-align: bottom;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    border-top: 1px solid #eaecf0;
+}
+
+.is-invalid {
+    color: #dc3545;
+}
