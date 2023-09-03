@@ -1,4 +1,13 @@
 $(document).ready(function () {
+
+    $(".recipe-card-save").on("click", function (event) {
+        event.preventDefault();
+        //get the recipe id
+        var recipeId = $(this).attr("data-recipeId");
+        alert("clicked on recipe id: " + recipeId);
+    });
+
+
     // Adds custom validation method to jquery-validation to validate name fields.
     // Name fields must be at least 2 characters long, no longer than 20 characters and must contain only letters and hyphens.
     jQuery.validator.addMethod("validname", function (value, element) {

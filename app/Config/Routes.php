@@ -34,6 +34,9 @@ $routes->get('/recipe/(:segment)/(:segment)', 'Recipe::viewRecipe/$1/$2');
 $routes->post('/login', 'Auth::login');
 $routes->post('/register', 'Auth::register');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/account', 'User::account');
+$routes->get('/saved', 'User::saved');
+
 
 /*
  * --------------------------------------------------------------------

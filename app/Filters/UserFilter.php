@@ -11,7 +11,7 @@ class UserFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = \Config\Services::session();
-        if (!$session->get('isLoggedIn')) {
+        if (!$session->get('logged_in')) {
             return redirect()->to('/#login');
         }
     }
