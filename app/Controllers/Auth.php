@@ -18,10 +18,13 @@ class Auth extends BaseController
     {
         if ($this->session->get('logged_in')) {
             //javascript will refresh the page on success, fixing any issues on why this endpoint would be called...
-            return $this->respond(['success' => true], 200);
+            return $this->respond('Strange request.', 200);
         }
 
-        if (!isset($this->request->getPost()['email']) || !isset($this->request->getPost()['password'])) {
+        $email = $this->request->getPost('email', FILTER_VALIDATE_EMAIL);
+        $password = $this->request->getPost('password');
+
+        if (!$email || !$password) {
             return $this->failNotFound('Invalid login.');
         }
 
@@ -34,6 +37,9 @@ class Auth extends BaseController
             return $this->failNotFound('Invalid login.');
         }
 
+        $savedRecipeModel = new \App\Models\SavedRecipeModel();
+        $savedRecipes = $savedRecipeModel->getAllSaved($user['id']);
+
         $userData = [
             'id' => $user['id'],
             'first_name' => $user['first_name'],
@@ -44,17 +50,23 @@ class Auth extends BaseController
         ];
         $this->session->set($userData);
 
-        return $this->respond(['success' => true], 200);
+        return $this->respond(['success' => true, 'saved_recipes' => $savedRecipes], 200);
     }
 
     public function register()
     {
         if ($this->session->get('logged_in')) {
             //javascript will refresh the page on success, fixing any issues on why this endpoint would be called...
-            return $this->respond(['success' => true], 200);
+            return $this->respond('Strange request.', 200);
         }
 
         $form = $this->request->getPost();
+
+        //make sure all fields are set
+        if (!isset($form['first_name']) || !isset($form['last_name']) || !isset($form['email']) || !isset($form['password'])) {
+            return $this->failNotFound('Please fill out all fields.');
+        }
+
         $userModel = new \App\Models\UserModel();
 
         $user = [
@@ -75,10 +87,11 @@ class Auth extends BaseController
             'last_name' => $user['last_name'],
             'email' => $user['email'],
             'is_admin' => $user['is_admin'],
-            'logged_in' => true
+            'logged_in' => true,
+            'saved_recipes' => []
         ];
         $this->session->set($userData);
 
-        return $this->respondCreated(['success' => true]);
+        return $this->respondCreated('Account created.');
     }
 }

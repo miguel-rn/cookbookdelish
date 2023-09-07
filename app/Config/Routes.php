@@ -35,7 +35,10 @@ $routes->post('/login', 'Auth::login');
 $routes->post('/register', 'Auth::register');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/account', 'User::account');
+$routes->post('/account', 'User::updateAccount');
 $routes->get('/saved', 'User::saved');
+$routes->post('/save', 'User::save');
+$routes->post('/unsave', 'User::unsave');
 
 
 /*

@@ -23,11 +23,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="input-group me-1 w-100">
-                    <input type="text" class="form-control rounded-0" placeholder="Search..." aria-label="Input group example" aria-describedby="btnGroupAddon" />
-                    <div class="input-group-text" id="btnGroupAddon">
-                        <span class="material-symbols-outlined"> search </span>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <form action="{base_url}" class="flex-grow-1 me-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search our recipes..." name="q" value="{search_query}">
+                            <button class="btn btn-outline-secondary d-inline-flex justify-content-center" type="button" id="button-addon1"><span class="material-symbols-outlined"> search </span></button>
+                        </div>
+                    </form>
+
                     {if $user_logged_in==true}
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary rounded-pill ms-2 me-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +46,7 @@
                         </ul>
                     </div>
                     {else}
-                    <button type="button" class="btn btn-outline-secondary rounded-pill ms-2 me-1" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill ms-1 me-1" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
                     <button type="button" class="btn btn-bd-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</button>
                     {endif}
                 </div>
@@ -82,11 +85,7 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember Me</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="submit" class="btn btn-bd-primary">Sign In</button>
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -130,7 +129,7 @@
                             <input type="checkbox" class="form-check-input" id="acceptTerms" name="acceptTerms">
                             <label class="form-check-label" for="acceptTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+                        <button type="submit" class="btn btn-bd-primary mt-3">Sign Up</button>
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
@@ -143,6 +142,7 @@
     <script src="{base_url}assets/js/bootstrap.bundle.min.js"></script>
     <script src="{base_url}assets/js/jquery-3.6.4.min.js"></script>
     <script src="{base_url}assets/js/jquery.validate.min.js"></script>
+    <script src="{base_url}assets/js/js.cookie.min.js"></script>
     <script src="{base_url}assets/js/main.js"></script>
 </body>
 

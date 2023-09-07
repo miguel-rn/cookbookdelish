@@ -19,9 +19,10 @@ class UserModel extends Model
     protected $beforeUpdate = ['hashPassword'];
 
     protected $validationRules = [
+        'id'    => 'is_natural_no_zero',
         'first_name' => 'required|alpha_dash|min_length[2]|max_length[20]',
         'last_name' => 'required|alpha_dash|min_length[2]|max_length[20]',
-        'email' => 'required|valid_email|is_unique[users.email]',
+        'email' => 'required|valid_email|is_unique[users.email,id,{id}]',
         'password' => 'required|min_length[6]|max_length[255]'
     ];
 

@@ -15,7 +15,7 @@
                             <div class="accordion-body py-0">
                                 <ul class="list-unstyled filter-list">
                                     {children}
-                                    <li><a href="#">{child_name}</a></li>
+                                    <li><a href="?cat={child_id}">{child_name}</a></li>
                                     {/children}
                                 </ul>
                             </div>
@@ -29,7 +29,7 @@
                     {recipes}
                     <div class="col mb-5">
                         <a class="text-decoration-none text-dark" href="{base_url}recipe/{id}/{slug}">
-                            <div class="card h-100 border-0 recipe-card">
+                            <div class="card h-100 border-0 recipe-card" data-recipeId={id}>
                                 <img class="card-img rounded-4 recipe-card-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=160&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3MzkzNTA2Ng&ixlib=rb-4.0.3&q=80&w=300" />
                                 <div class="card-img-overlay">
                                     <span class="material-symbols-outlined recipe-card-save" data-recipeId={id}> favorite </span>
@@ -41,6 +41,18 @@
                         </a>
                     </div>
                     {/recipes}
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {if $previousPage != null}
+                        <a href="?{previousPage}" class="btn btn-bd-primary d-inline-flex justify-content-center"><span class="material-symbols-outlined">navigate_before</span></a>
+                        {endif}
+                    </div>
+                    <div class="col-6 text-end">
+                        {if $nextPage != null}
+                        <a href="?{nextPage}" class="btn btn-bd-primary d-inline-flex justify-content-center"><span class="material-symbols-outlined">navigate_next</span></a>
+                        {endif}
+                    </div>
                 </div>
             </div>
         </div>

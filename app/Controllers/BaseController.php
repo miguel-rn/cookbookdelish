@@ -61,12 +61,18 @@ abstract class BaseController extends Controller
 
         $this->parser = \Config\Services::parser();
 
-        $this->data = ['site_name' => config('App')->siteName, 'base_url' => base_url(), 'user_logged_in' => false];
+        $this->data = ['site_name' => config('App')->siteName, 'base_url' => base_url(), 'user_logged_in' => false, 'search_query' => ""];
 
         if ($this->session->get('logged_in')) {
             foreach ($this->session->get() as $key => $value) {
+                // if ($key == 'saved_recipes') {
+                //     continue;
+                // }
                 $this->data['user_' . $key] = $value;
             }
+        } else {
+            //delete saved_recipes cookie
+            setcookie('saved_recipes', '', time() - 3600, '/');
         }
     }
 }

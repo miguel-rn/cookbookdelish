@@ -16,11 +16,6 @@ class RecipeModel extends Model
     protected $updatedField  = 'updated_at';
     protected $beforeInsert = ['beforeInsert'];
 
-    public function getRandomRecipes($limit, $offset, $seed): array
-    {
-        return $this->orderBy("RAND($seed)")->findAll($limit, $offset);
-    }
-
     protected function beforeInsert(array $data, $attempt = 0): array
     {
         //Generate random unique 7 digit ID
